@@ -1,0 +1,26 @@
+<div class="wrapper">
+
+  <ng-container *ngIf="onLoad; else loading">
+    <div class="swapi">
+      <div class="swapi__list">
+        <mat-form-field appearance="fill">
+          <mat-label>Select planet</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let planet of allPlanets"
+                        [value]="planet.name"
+                        (click)="onSelectPlanet(planet)">{{planet.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="swapi__table">
+        <app-info-table></app-info-table>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <h2>Loading...</h2>
+  </ng-template>
+
+</div>
+
